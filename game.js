@@ -71,7 +71,6 @@ function playRound(player, computer){
   else if (player == "scissor" && computer == "rock"){
     console.log("computer win")
   }
-
   else if (player == "paper"  && computer === "rock"){
     console.log("player win")
   }
