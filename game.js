@@ -4,16 +4,16 @@ const scissor = document.getElementById("scissor");
 const btn = document.querySelector("button");
 const choice = document.getElementById("demo");
 const choice1 = document.getElementById("demo1");
+const result = document.getElementById("result");
 let player;
 let computer;
-let result;
 
 rock.addEventListener("click", (player, computer) => {
   player = "rock";
   choice.innerHTML= player;
   computer = compChoice();
   choice1.innerHTML = computer;
-  playRound(player, computer);
+  result.innerHTML=  playRound(player, computer);
 
 } )
 
@@ -22,7 +22,7 @@ paper.addEventListener("click", (player, computer) => {
   choice.innerHTML= player;
   computer = compChoice();
   choice1.innerHTML = computer;
-  playRound(player, computer);
+   result.innerHTML= playRound(player, computer);
 
 } )
 
@@ -31,7 +31,7 @@ scissor.addEventListener("click", (player, computer) => {
   choice.innerHTML= player;
   computer = compChoice();
   choice1.innerHTML = computer;
-  playRound(player, computer);
+  result.innerHTML= playRound(player, computer);
 
 } )
 
@@ -47,7 +47,7 @@ function compChoice(computer){
     break;
     
     case 2:
-        return "pepar";
+        return "paper";
         break;
 
         case 3:
@@ -59,26 +59,26 @@ function compChoice(computer){
 }
 
 function playRound(player, computer){
-  if(player === computer){
-    console.log("tie");
+  if(player == computer){
+  return("Draw")
   }
-  else if(player =="rock" && computer == "paper"){
-    console.log("computer win")
+  else if(player == "rock" && computer == "paper"){
+      return("Computer win, paper beat rock")
   }
   else if (player == "paper" && computer == "scissor"){
-    console.log("computer win")
+      return("Computer win, scissor beat paper")
   }
   else if (player == "scissor" && computer == "rock"){
-    console.log("computer win")
+      return("Computer win,rock beat scissor")
   }
   else if (player == "paper"  && computer === "rock"){
-    console.log("player win")
+      return("Player win, paper beat rock")
   }
   else if (player == "scissor" && computer === "paper"){
-    console.log("player win")
+      return("Player win, scisssor beat paper")
   }
   else if (player === "rock" && computer === "scissor"){
-    console.log("player win")
+      return("Player win, rock beat scissor")
   }
 
 }
