@@ -28,7 +28,7 @@ paper.addEventListener("click", (player, computer) => {
   computer = compChoice();
   choice1.innerHTML = computer;
   result.innerHTML = playRound(player, computer);
-  
+
 })
 
 scissor.addEventListener("click", (player, computer) => {
@@ -69,81 +69,84 @@ function playRound(player, computer) {
     computerScore++;
     playerWin.innerHTML = `palyer score: ${playerScore}`
     computerWin.innerHTML = `computer score: ${computerScore}`
-    game(playerScore, computerScore);
+    // game(playerScore, computerScore);
     return ("Draw")
   }
   else if (player == "rock" && computer == "paper") {
     computerScore++;
     computerWin.innerHTML = `computer score: ${computerScore}`
-    game(playerScore, computerScore);
+    // game(playerScore, computerScore);
     return ("Computer win, paper beat rock")
   }
   else if (player == "paper" && computer == "scissor") {
     computerScore++;
     computerWin.innerHTML = `computer score: ${computerScore}`
-    game(playerScore, computerScore);
+    // game(playerScore, computerScore);
     return ("Computer win, scissor beat paper")
   }
   else if (player == "scissor" && computer == "rock") {
     computerScore++;
     computerWin.innerHTML = `computer score: ${computerScore}`
-    game(playerScore, computerScore);
+    // game(playerScore, computerScore);
     return ("Computer win,rock beat scissor")
   }
   else if (player == "paper" && computer === "rock") {
     playerScore++;
     playerWin.innerHTML = `player score: ${playerScore}`
-    game(playerScore, computerScore);
+    // game(playerScore, computerScore);
     return ("Player win, paper beat rock")
   }
   else if (player == "scissor" && computer === "paper") {
     playerScore++;
     playerWin.innerHTML = `player score: ${playerScore}`
-    game(playerScore, computerScore);
+    // game(playerScore, computerScore);
     return ("Player win, scisssor beat paper")
   }
   else if (player === "rock" && computer === "scissor") {
     playerScore++;
     playerWin.innerHTML = `player score: ${playerScore}`
-    game(playerScore, computerScore);
+    // game(playerScore, computerScore);
     return ("Player win, rock beat scissor")
   }
 
+  if(playerScore == 5 || computerScore == 5){
+    winner(playerScore, computerScore)
+  }
+
 }
 
 
-function game( computerScore, playerScore) {
+// function game(playerScore, computerScore) {
 
-  for (playerScore = 0; playerScore >= 5; playerScore++ ){
+//   if (playerScore == 5 && computerScore == 5) {
+//     console.log(`it's draw`);
 
-    for (computerScore = 0; computerScore >= 5; computerScore++){
-
-  if (playerScore === 5 || computerScore === 5){
-    return "match is Draw"
-  }
-  else if (playerScore < computerScore){
-    return "computer win the match, try again"
-  }
-  else if (playerScore > computerScore){
-    return "oohh you win the match"
-  }
-
-  }
-  
-}
-}
-
-
-
-
-
-
-
-// function game() {
-//   playRound(player, computer);
-
-
-//   for (player = 0; player >= 5; player++) {
-//     console.log("player win this round");
 //   }
+//   else if (playerScore > computerScore) {
+//     console.log(`player win this macth`);
+//   }
+//   else if (playerScore < computerScore) {
+//     console.log(`computer win this macth`);
+//   }
+//   else{
+//     console.log("its draw the macth")
+//   }
+
 // }
+
+
+
+
+
+
+function winner() {
+if (playerScore > computerScore) {
+    console.log("player win this macth");
+  }
+  else if (playerScore < computerScore) {
+    console.log("computer win this macth");
+  }
+  else{
+    console.log("its draw the macth")
+  }
+}
