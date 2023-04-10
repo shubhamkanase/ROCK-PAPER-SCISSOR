@@ -1,3 +1,6 @@
+let playerScore = 0;
+let computerScore = 0;
+
 const rock = document.getElementById("rock");
 const paper = document.getElementById("paper");
 const scissor = document.getElementById("scissor");
@@ -10,8 +13,7 @@ const computerWin = document.getElementById("computerWin");
 const flresult = document.getElementById("flresult");
 let player;
 let computer;
-let playerScore = 0;
-let computerScore = 0;
+
 
 rock.addEventListener("click", (player, computer) => {
   player = "rock";
@@ -111,32 +113,43 @@ function playRound(player, computer) {
     game(playerScore, computerScore);
     return ("Player win, rock beat scissor")
   }
-
-  if(playerScore == 5 || computerScore == 5){
-    winner(playerScore, computerScore)
-  }
 }
 
 
 function game(playerScore, computerScore) {
 
-  if (playerScore == 5 && computerScore == 5) {
-    flresult.innerHTML = "Draw this round";
+ if (playerScore == 5 || computerScore == 5) {
     playerScore = 0;
     computerScore = 0;
-    location.reload();
+    flresult.innerHTML = "Draw this round";
+   
   }
-  else if (playerScore == 5 ) {
+
+
+   else if (playerScore == true ) {
+    playerScore++;
     flresult.innerHTML = "you win the macth";
     playerScore = 0;
-    location.reload();
-  }
-  else if (computerScore == 5) {
-    flresult.innerHTML = "computer win this macth";
     computerScore = 0;
-    location.reload();
+  
   }
-  else if (playerScore == 0 && computerScore == 0){
+
+  else if (computerScore == false) {
+    computerScore++;
+    flresult.innerHTML = "computer win this macth";
+    playerScore = 0;
+    computerScore = 0;
+    
+  }
+ 
+  else if(playerScore == 5 && computerScore == 5) {
+    playerScore = 0;
+    computerScore = 0;
+    flresult.innerHTML = "Draw this round";
+   
+  }
+ 
+   if (playerScore == 0 && computerScore == 0){
     flresult.innerHTML = "start the match";
 
   }
@@ -146,15 +159,15 @@ function game(playerScore, computerScore) {
 
 
 
-// function winner(playerScore, computerScore) {
-//   if (playerScore > computerScore) {
-//     console.log("player win this macth");
-//     flresult.innerHTML = "player win this round";
-//   }
-//   else if (playerScore < computerScore) {
-//     flresult.innerHTML = "computer win this round";
-//   }
-//   else {
-//     flresult.innerHTML = "Draw this round";
-//   }
-// }
+function winner(playerScore, computerScore) {
+  if (playerScore > computerScore) {
+    console.log("player win this macth");
+    flresult.innerHTML = "player win this round";
+  }
+  else if (playerScore < computerScore) {
+    flresult.innerHTML = "computer win this round";
+  }
+  else {
+    flresult.innerHTML = "Draw this round";
+  }
+}
