@@ -21,8 +21,8 @@ rock.addEventListener("click", (player, computer) => {
   computer = compChoice();
   choice1.innerHTML = computer;
   result.innerHTML = playRound(player, computer);
-  flresult.innerHTML = winner(playerScore, computerScore);
-  winner(playerScore, computerScore);
+  
+  // flresult.innerHTML = game(playerScore, computerScore);
 
 
 })
@@ -33,8 +33,8 @@ paper.addEventListener("click", (player, computer) => {
   computer = compChoice();
   choice1.innerHTML = computer;
   result.innerHTML = playRound(player, computer);
-  flresult.innerHTML = winner(playerScore, computerScore);
-  winner(playerScore, computerScore);
+ 
+  // flresult.innerHTML = game(playerScore, computerScore);
 })
 
 scissor.addEventListener("click", (player, computer) => {
@@ -42,8 +42,9 @@ scissor.addEventListener("click", (player, computer) => {
   choice.innerHTML = player;
   computer = compChoice();
   choice1.innerHTML = computer;
-  result.innerHTML = playRound(player, computer);
-  winner(playerScore, computerScore);
+  result.innerHTML = playRound(player, computer); 
+  
+  // flresult.innerHTML = game(playerScore, computerScore);
 
 })
 
@@ -70,104 +71,174 @@ function compChoice() {
 
 function playRound(player, computer) {
   if (player == computer) {
-    playerScore++;
+    ++playerScore;
     computerScore++;
-    playerWin.innerHTML = `palyer score: ${playerScore}`
+    playerWin.innerHTML = `Player score: ${playerScore}`
     computerWin.innerHTML = `computer score: ${computerScore}`
-    game(playerScore, computerScore);
-    return ("Draw")
+    game(playerScore, computerScore)
+    return "Draw"
   }
   else if (player == "rock" && computer == "paper") {
     computerScore++;
     computerWin.innerHTML = `computer score: ${computerScore}`
-    game(playerScore, computerScore);
+    game(playerScore, computerScore)
     return ("Computer win, paper beat rock")
   }
   else if (player == "paper" && computer == "scissor") {
     computerScore++;
     computerWin.innerHTML = `computer score: ${computerScore}`
-    game(playerScore, computerScore);
+    game(playerScore, computerScore)
     return ("Computer win, scissor beat paper")
   }
   else if (player == "scissor" && computer == "rock") {
     computerScore++;
     computerWin.innerHTML = `computer score: ${computerScore}`
-    game(playerScore, computerScore);
+    game(playerScore, computerScore)
     return ("Computer win,rock beat scissor")
   }
   else if (player == "paper" && computer === "rock") {
     playerScore++;
-    playerWin.innerHTML = `player score: ${playerScore}`
-    game(playerScore, computerScore);
+    playerWin.innerHTML = `Player score: ${playerScore}`
+    game(playerScore, computerScore)
     return ("Player win, paper beat rock")
   }
   else if (player == "scissor" && computer === "paper") {
     playerScore++;
-    playerWin.innerHTML = `player score: ${playerScore}`
-    game(playerScore, computerScore);
+    playerWin.innerHTML = `Player score: ${playerScore}`
+    game(playerScore, computerScore)
     return ("Player win, scisssor beat paper")
   }
   else if (player === "rock" && computer === "scissor") {
     playerScore++;
-    playerWin.innerHTML = `player score: ${playerScore}`
-    game(playerScore, computerScore);
+    playerWin.innerHTML = `Player score: ${playerScore}`
+    game(playerScore, computerScore)
     return ("Player win, rock beat scissor")
   }
 }
+// console.log(playerScore)
+// function game(playerScore, computerScore) {
+//     if (playerScore === 5 || computerScore === 5) {
+//       if(playerScore === computerScore){
+//         flresult.innerHTML = "tie";
+//       }else{
+//       flresult.innerHTML = (playerScore > computerScore)?  "win" : "loss"
+//     }
+//   }
 
 
-function game(playerScore, computerScore) {
 
- if (playerScore == 5 || computerScore == 5) {
-    playerScore = 0;
-    computerScore = 0;
-    flresult.innerHTML = "Draw this round";
-   
+function game(playerScore, computerScore){
+
+  if (playerScore == 5 || computerScore == 5) {
+    if (playerScore > computerScore) {
+        text = document.createTextNode(`YOU WIN ${playerScore}:${computerScore}!`);
+        flresult.appendChild(text);
+        // location.reload;
+        rock.removeEventListener("click", getRandNO);  
+        paper.removeEventListener("click", getRandNO);  
+        scissor.removeEventListener("click", getRandNO);  
+      
+    }
+    else if (computerScore > playerScore) {
+        text = document.createTextNode(`COMPUTER WINS ${computerScore}:${playerScore}!`);
+        flresult.appendChild(text);
+        // location.reload;
+        rock.removeEventListener("click", getRandNO);  
+        paper.removeEventListener("click", getRandNO);  
+        scissor.removeEventListener("click", getRandNO);  
+        
+    }
+    else {
+        text = document.createTextNode(`IT WAS A DRAW!`);
+        flresult.appendChild(text);
+        // location.reload;
+        rock.removeEventListener("click", getRandNO);  
+        paper.removeEventListener("click", getRandNO);  
+        scissor.removeEventListener("click", getRandNO);  
+    }   
   }
+}
 
 
-   else if (playerScore == true ) {
-    playerScore++;
-    flresult.innerHTML = "you win the macth";
-    playerScore = 0;
-    computerScore = 0;
+
+
+
+
+
+
   
-  }
-
-  else if (computerScore == false) {
-    computerScore++;
-    flresult.innerHTML = "computer win this macth";
-    playerScore = 0;
-    computerScore = 0;
-    
-  }
- 
-  else if(playerScore == 5 && computerScore == 5) {
-    playerScore = 0;
-    computerScore = 0;
-    flresult.innerHTML = "Draw this round";
-   
-  }
- 
-   if (playerScore == 0 && computerScore == 0){
-    flresult.innerHTML = "start the match";
-
-  }
-
-}
+  
 
 
+  // else if (playerScore == 5) {
+  //   playerScore++;
+  //   flresult.innerHTML = "you win the macth";
+  //   playerScore = 0;
+  //   computerScore = 0;
+
+  // }
+
+  // else if (computerScore == 5) {
+  //   computerScore++;
+  //   flresult.innerHTML = "computer win this macth";
+  //   playerScore = 0;
+  //   computerScore = 0;
+
+  // }
+
+  // else if (playerScore == 5 && computerScore == 5) {
+  //   playerScore = 0;
+  //   computerScore = 0;
+  //   flresult.innerHTML = "Draw this round";
+
+  // }
+
+  // if (playerScore == 0 && computerScore == 0) {
+  //   flresult.innerHTML = "start the match";
+
+  // }
 
 
-function winner(playerScore, computerScore) {
-  if (playerScore > computerScore) {
-    console.log("player win this macth");
-    flresult.innerHTML = "player win this round";
-  }
-  else if (playerScore < computerScore) {
-    flresult.innerHTML = "computer win this round";
-  }
-  else {
-    flresult.innerHTML = "Draw this round";
-  }
-}
+  // playerScore = 0;
+  // computerScore = 0;
+
+  // if (playerScore <= 5) {
+  //   flresult.innerHTML = "you win this match";
+  //   playerScore++;
+  // }
+
+  // else if (computerScore <= 5) {
+  //   flresult.innerHTML = "computer win this match";
+  //   computerScore++;
+  // }
+  // else if (playerScore == 0 || computerScore == 0) {
+  //   flresult.innerHTML = "draw this match";
+  //   playerScore++;
+  //   computerScore++;
+  // }
+
+
+
+
+
+
+  // do{
+  //  playRound() 
+  // }while(playerScore == 5 || computerScore == 5)
+
+// }
+
+
+
+// function winner(playerScore, computerScore) {
+//   if (playerScore > computerScore) {
+//     console.log("player win this macth");
+//     flresult.innerHTML = "player win this round";
+//   }
+//   else if (playerScore < computerScore) {
+//     flresult.innerHTML = "computer win this round";
+//   }
+//   else {
+//     flresult.innerHTML = "Draw this round";
+//   }
+// }
