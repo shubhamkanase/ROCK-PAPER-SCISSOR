@@ -5,19 +5,79 @@
 
 }
 
+img{
+    width: 100px;
+}
+
 #rock{
     font-size: 20px;
     padding: 20px;
-    margin: 20px;
+    margin: 15px;
+    
 
 }
 #paper{
     font-size: 20px;
     padding: 20px;
-    margin: 20px;
+    margin: 15px;
 }
 #scissor{
     font-size: 20px;
     padding: 20px;
-    margin: 20p;
+    margin: 15px;
+}
+
+#playerWin{
+    /* text-align: center; */
+    padding-right: 50px;
+    margin-top: 10px;
+}
+#computerWin{
+    /* text-align: center; */
+    padding-left: 50px;
+    margin-top: 10px;
+}
+#text{
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+
+}
+
+#text-output{
+    display: flex;
+    justify-content: center;
+}
+
+#demo{
+  padding-right: 150px;
+  font-size: 40px;
+}
+
+#demo1{
+  padding-left: 100px;
+  font-size: 40px;
+}
+
+#result{
+    /* justify-content: center; */
+    text-align: center;
+    font-size: 30px;
+
+}
+
+#flresult{
+    margin-top: 20px;
+    text-align: center;
+
+}
+
+#again{
+    padding: 10px 600px;
+    margin: 10px;
+    margin-top: 30px;
+}
+
+#restart{
+    font-size: 20px;
 }

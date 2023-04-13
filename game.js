@@ -12,12 +12,13 @@ const result = document.getElementById("result");
 const playerWin = document.getElementById("playerWin");
 const computerWin = document.getElementById("computerWin");
 const flresult = document.getElementById("flresult");
+const restart = document.getElementById("restart");
 let player;
 let computer;
 
 
 rock.addEventListener("click", (player, computer) => {
-  player = "rock";
+  player = "Rock";
   choice.innerHTML = player;
   computer = compChoice();
   choice1.innerHTML = computer;
@@ -30,7 +31,7 @@ rock.addEventListener("click", (player, computer) => {
 })
 
 paper.addEventListener("click", (player, computer) => {
-  player = "paper";
+  player = "Paper";
   choice.innerHTML = player;
   computer = compChoice();
   choice1.innerHTML = computer;
@@ -43,7 +44,7 @@ paper.addEventListener("click", (player, computer) => {
 })
 
 scissor.addEventListener("click", (player, computer) => {
-  player = "scissor";
+  player = "Scissor";
   choice.innerHTML = player;
   computer = compChoice();
   choice1.innerHTML = computer;
@@ -63,15 +64,15 @@ function compChoice() {
 
   switch (num) {
     case 1:
-      return "rock";
+      return "Rock";
 
 
     case 2:
-      return "paper";
+      return "Paper";
 
 
     case 3:
-      return "scissor";
+      return "Scissor";
 
   }
 }
@@ -80,31 +81,31 @@ function playRound(player, computer) {
   if (player == computer) {
     return "Draw"
   }
-  else if (player == "rock" && computer == "paper") {
+  else if (player == "Rock" && computer == "Paper") {
     computerScore++;
     
-    return ("Computer win, paper beat rock")
+    return ("Computer win, Paper beat Rock")
   }
-  else if (player == "paper" && computer == "scissor") {
+  else if (player == "Paper" && computer == "Scissor") {
     computerScore++;
     
-    return ("Computer win, scissor beat paper")
+    return ("Computer win, Scissor beat Paper")
   }
-  else if (player == "scissor" && computer == "rock") {
+  else if (player == "Scissor" && computer == "Rock") {
     computerScore++;
-    return ("Computer win,rock beat scissor")
+    return ("Computer win,Rock beat Scissor")
   }
-  else if (player == "paper" && computer === "rock") {
+  else if (player == "Paper" && computer === "Rock") {
     playerScore++;
-    return ("Player win, paper beat rock")
+    return ("Player win, Paper beat Rock")
   }
-  else if (player == "scissor" && computer === "paper") {
+  else if (player == "Scissor" && computer === "Paper") {
     playerScore++;
-    return ("Player win, scisssor beat paper")
+    return ("Player win, scisssor beat Paper")
   }
-  else if (player === "rock" && computer === "scissor") {
+  else if (player === "Rock" && computer === "Scissor") {
     playerScore++;  
-    return ("Player win, rock beat scissor")
+    return ("Player win, Rock beat Scissor")
   }
 }
 
@@ -125,6 +126,10 @@ function game(){
 
   if (playerScore == 5) {
     document.getElementById("flresult").innerHTML = "Let's Celebrate. You WIN THE MATCH"
+    rock.disabled = true;
+    paper.disabled = true;
+    scissor.disabled = true;
+    document.getElementById("flresult").style.color = "green";
 
     playerScore = 0;
     computerScore = 0;
@@ -132,13 +137,21 @@ function game(){
 
 } else if(computerScore == 5){
     document.getElementById("flresult").innerHTML = "OOPS, COMPUTER WIN THE MATCH"
-    
+    rock.disabled = true;
+    paper.disabled = true;
+    scissor.disabled = true;
+    document.getElementById("flresult").style.color = "red";
+  
     playerScore = 0;
     computerScore = 0;
   
 
 }else if(computerScore === 5 || playerScore === 5){
     document.getElementById("flresult").innerHTML = "DRAW  THE MATCH"
+    rock.disabled = true;
+    paper.disabled = true;
+    scissor.disabled = true;
+    document.getElementById("flresult").style.color = "blue";
     
     
 }
@@ -147,3 +160,7 @@ else if(playerScore === 0 || computerScore === 0)(
 )
 
 }
+
+restart.addEventListener("click", function gameRestart(){
+  location.reload();
+})
