@@ -13,11 +13,15 @@ const playerWin = document.getElementById("playerWin");
 const computerWin = document.getElementById("computerWin");
 const flresult = document.getElementById("flresult");
 const restart = document.getElementById("restart");
+const cheering = document.getElementById("cheering");
+const sadsound = document.getElementById("sadsound");
+const multimedia = document.getElementById("multimedia");
 let player;
 let computer;
 
 
 rock.addEventListener("click", (player, computer) => {
+  multimedia.play();
   player = "Rock";
   choice.innerHTML = player;
   computer = compChoice();
@@ -31,6 +35,7 @@ rock.addEventListener("click", (player, computer) => {
 })
 
 paper.addEventListener("click", (player, computer) => {
+  multimedia.play();
   player = "Paper";
   choice.innerHTML = player;
   computer = compChoice();
@@ -44,6 +49,7 @@ paper.addEventListener("click", (player, computer) => {
 })
 
 scissor.addEventListener("click", (player, computer) => {
+  multimedia.play();
   player = "Scissor";
   choice.innerHTML = player;
   computer = compChoice();
@@ -125,6 +131,7 @@ function gameOver(){
 function game(){
 
   if (playerScore == 5) {
+    cheering.play();
     document.getElementById("flresult").innerHTML = "Let's Celebrate. You WIN THE MATCH"
     rock.disabled = true;
     paper.disabled = true;
@@ -136,6 +143,7 @@ function game(){
     
 
 } else if(computerScore == 5){
+  sadsound.play();
     document.getElementById("flresult").innerHTML = "OOPS, COMPUTER WIN THE MATCH"
     rock.disabled = true;
     paper.disabled = true;

@@ -13,18 +13,22 @@ img{
     font-size: 20px;
     padding: 20px;
     margin: 15px;
-    
+    background-color: rgb(121, 134, 138);
 
 }
 #paper{
     font-size: 20px;
     padding: 20px;
     margin: 15px;
+    background-color: rgb(121, 134, 138);
+
 }
 #scissor{
     font-size: 20px;
     padding: 20px;
     margin: 15px;
+    background-color: rgb(121, 134, 138);
+
 }
 
 #playerWin{
@@ -80,4 +84,8 @@ img{
 
 #restart{
     font-size: 20px;
+    border-radius: 5px;
+    color: black;
+    color: aliceblue;
+    background-color: rgb(49, 51, 65);
 }
